@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "prodotti",
+  "info": {
+    "singularName": "prodotto",
+    "pluralName": "prodotti",
+    "displayName": "Prodotto",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "string"
+    },
+    "Price": {
+      "type": "decimal"
+    },
+    "Bild": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}
