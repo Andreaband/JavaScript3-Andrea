@@ -12,14 +12,20 @@ import { CommonModule } from '@angular/common';
 export class HomeComponent implements OnInit {
   products: Product[] = [];
   showAll = false;
+  heroImage: string = '';
+
 
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
     this.productService.getProducts().subscribe((data) => {
       this.products = data;
+      if (this.products.length > 0) {
+        this.heroImage = 'http://localhost:3000/uploads/' + this.products[0].image_url;
+      }
     });
   }
+
 
   toggleShowAll(): void {
     this.showAll = !this.showAll;

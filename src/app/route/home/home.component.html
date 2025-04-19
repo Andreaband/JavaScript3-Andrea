@@ -3,12 +3,11 @@
   <!-- HERO -->
   <section class="hero-section">
     <div class="hero-text">
-      <p>The Forms Collection is a tribute to the fine wear of time. Every piece is handmade in Italy with delicate precision and ancient intention.</p>
-      <p>Each vessel is unglazed on the exterior, offering a tactile experience that evolves with every use.</p>
+      <p>The Forms Collection is a tribute to the fine wear of time...</p>
       <p><strong>— A.·.Otis Collection</strong></p>
     </div>
     <div class="hero-img">
-      <img src="https://via.placeholder.com/400x500" alt="Hero Product">
+      <img [src]="heroImage || 'https://via.placeholder.com/400x500'" alt="Hero Product">
     </div>
   </section>
 
@@ -17,17 +16,19 @@
     <div class="product-grid">
       <div class="product-card" *ngFor="let p of products.slice(0, showAll ? products.length : 6)">
         <img
-          [src]="p.image ? p.image : 'https://via.placeholder.com/300'"
-          [alt]="p.name" />
-
+          [src]="'http://localhost:3000/uploads/' + p.image_url"
+          [alt]="p.name || 'Immagine prodotto'"
+        />
         <h3>{{ p.name }}</h3>
-        <p>{{ p.description }}</p>
         <p class="price">€ {{ p.price }}</p>
+        <div class="product-text">
+          <p>{{ p.description}}</p>
+        </div>
       </div>
     </div>
+
     <button class="toggle-button" (click)="toggleShowAll()">
       {{ showAll ? 'Mostra meno' : 'Mostra tutti' }}
     </button>
   </section>
-
 </div>

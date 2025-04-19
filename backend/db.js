@@ -1,5 +1,11 @@
 const Database = require('better-sqlite3');
-const db = new Database('db.sqlite');
+const path = require('path');
+
+// 🔧 Usa il percorso assoluto del file products.db nella cartella corrente (backend)
+const dbPath = path.resolve(__dirname, 'products.db');
+console.log('🧠 DB caricato da:', dbPath);
+
+const db = new Database(dbPath);
 
 // Crea la tabella se non esiste
 db.prepare(`
@@ -7,8 +13,8 @@ db.prepare(`
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
     description TEXT,
-    image TEXT,
-    price REAL
+    price REAL,
+    image_url TEXT
   )
 `).run();
 
