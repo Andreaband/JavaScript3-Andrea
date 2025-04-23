@@ -1,0 +1,94 @@
+.product-detail-container {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  padding: 2rem;
+  font-family: 'Georgia', serif;
+  background-color: #fffaf5;
+}
+
+.product-image img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ddd;
+  max-height: 80vh;
+}
+
+.product-info {
+  flex: 1;
+  color: #6e0000;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.price {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.meta p {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  margin: 0.2rem 0;
+}
+
+.description {
+  margin: 1rem 0;
+  color: #333;
+}
+
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.tab {
+  border: 1px solid #6e0000;
+  background: transparent;
+  color: #6e0000;
+  padding: 0.3rem 0.8rem;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.tab.selected {
+  background: #6e0000;
+  color: white;
+}
+
+
+.tab-content {
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+.add-to-cart {
+  background: none;
+  border: 1px solid #6e0000;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #6e0000;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .product-detail-container {
+    flex-direction: column;
+  }
+
+  .product-image img {
+    max-height: 300px;
+    object-fit: cover;
+  }
+
+  .add-to-cart {
+    width: 100%;
+  }
+}

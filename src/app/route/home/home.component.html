@@ -3,7 +3,8 @@
   <!-- HERO -->
   <section class="hero-section">
     <div class="hero-text">
-      <p>The Forms Collection is a tribute to the fine wear of time...</p>
+      <h1>{{ heroTitle }}</h1>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima vero deleniti ipsam cupiditate autem excepturi laborum quidem velit similique corrupti optio officiis possimus sit at, exercitationem consequuntur incidunt ad mollitia soluta natus pariatur molestiae? Quam eligendi qui, earum odit officia eaque sequi recusandae officiis ea excepturi in omnis unde praesentium voluptas. Omnis dolor quia eius dolorem totam mollitia tempore recusandae eveniet suscipit atque repellendus quae aliquid esse doloremque voluptate ut ex earum, velit sequi! Repudiandae enim qui deleniti blanditiis iste.</p>
       <p><strong>— A.·.Otis Collection</strong></p>
     </div>
     <div class="hero-img">
@@ -11,24 +12,22 @@
     </div>
   </section>
 
-  <!-- PRODUCTS -->
-  <section class="products">
-    <div class="product-grid">
-      <div class="product-card" *ngFor="let p of products.slice(0, showAll ? products.length : 6)">
-        <img
-          [src]="'http://localhost:3000/uploads/' + p.image_url"
-          [alt]="p.name || 'Immagine prodotto'"
-        />
-        <h3>{{ p.name }}</h3>
-        <p class="price">€ {{ p.price }}</p>
-        <div class="product-text">
-          <p>{{ p.description}}</p>
-        </div>
-      </div>
-    </div>
+ <!-- PRODUCTS -->
+<section class="products">
+  <div class="product-grid">
+    <a *ngFor="let p of products.slice(0, showAll ? products.length : 3)"
+       [routerLink]="['/product', p.id]"
+       class="product-card">
 
-    <button class="toggle-button" (click)="toggleShowAll()">
-      {{ showAll ? 'Mostra meno' : 'Mostra tutti' }}
-    </button>
-  </section>
-</div>
+      <img [src]="'http://localhost:3000/uploads/' + p.image_url"
+           [alt]="p.name || 'Immagine prodotto'" />
+      <h3>{{ p.name }}</h3>
+      <p class="price">€ {{ p.price }}</p>
+    </a>
+  </div>
+
+  <button class="toggle-button" (click)="toggleShowAll()">
+    {{ showAll ? 'Mostra meno' : 'Mostra tutti' }}
+  </button>
+</section>
+

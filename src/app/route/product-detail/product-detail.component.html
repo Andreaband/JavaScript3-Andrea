@@ -1,0 +1,58 @@
+<div class="product-detail-container">
+  <div class="product-image">
+    <img [src]="p?.image_url ? 'http://localhost:3000/uploads/' + p?.image_url : 'https://via.placeholder.com/400x500'"
+         [alt]="p?.name" />
+  </div>
+
+  <div class="product-info">
+    <h1>{{ p?.name }}</h1>
+    <p class="price">€ {{ p?.price }}</p>
+
+    <div class="meta">
+      <p>DESIGNED AND CRAFTED IN ITALY</p>
+      <p>Capacity: 220ml</p>
+      <p>SKU: {{ p?.id }}</p>
+    </div>
+
+    <p class="description">{{ p?.description }}</p>
+
+    <div class="tabs">
+      <button
+        class="tab"
+        [class.selected]="activeTab === 'care'"
+        (click)="setActiveTab('care')">
+        CARE
+      </button>
+      <button
+        class="tab"
+        [class.selected]="activeTab === 'info'"
+        (click)="setActiveTab('info')">
+        INFO
+      </button>
+      <button
+        class="tab"
+        [class.selected]="activeTab === 'designer'"
+        (click)="setActiveTab('designer')">
+        DESIGNER
+      </button>
+    </div>
+
+    <div class="tab-content">
+      <ng-container [ngSwitch]="activeTab">
+        <p *ngSwitchCase="'care'">
+          Dishwasher safe. We recommend using gentle, environmentally-friendly detergents.
+          Avoid using on raw wood surfaces.
+        </p>
+        <p *ngSwitchCase="'info'">
+          Handmade in Italy. Dimensions: 9cm height × 8cm diameter. Capacity: 220ml.
+        </p>
+        <p *ngSwitchCase="'designer'">
+          Designed by A.·.Otis, inspired by traditional ceramics and minimalist design philosophy.
+        </p>
+      </ng-container>
+    </div>
+
+
+    <button class="add-to-cart">ADD TO CART</button>
+  </div>
+</div>
