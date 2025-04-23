@@ -22,12 +22,18 @@
       <img [src]="'http://localhost:3000/uploads/' + p.image_url"
            [alt]="p.name || 'Immagine prodotto'" />
       <h3>{{ p.name }}</h3>
+      <p class="product-description">{{ p.description }}</p>
       <p class="price">€ {{ p.price }}</p>
     </a>
   </div>
 
-  <button class="toggle-button" (click)="toggleShowAll()">
-    {{ showAll ? 'Mostra meno' : 'Mostra tutti' }}
-  </button>
+
+  <div class="toggle-container">
+    <button class="toggle-button" (click)="showAll = !showAll">
+      {{ showAll ? 'Mostra meno' : 'Mostra altri' }}
+      <span class="arrow" [class.up]="showAll">▼</span>
+    </button>
+  </div>
+
 </section>
 

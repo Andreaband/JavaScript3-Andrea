@@ -1,11 +1,54 @@
-<nav class="navbar">
-  <div class="logo">
-    <a href="/">A.<span>Otis</span>.</a>
-  </div>
-  <ul class="nav-links">
-    <li><a routerLink="/">Home</a></li>
-    <li><a routerLink="/shop">Shop</a></li>
-    <li><a routerLink="/about">About</a></li>
-    <li><a routerLink="/contatti">Contatti</a></li>
-  </ul>
-</nav>
+<header class="navbar">
+  <a class="logo" routerLink="/">A.:Otis.</a>
+
+  <nav>
+    <ul class="nav-links">
+      <!-- SHOP -->
+      <li class="nav-item">
+        <a (click)="isDropdownOpen = !isDropdownOpen">SHOP</a>
+        <ul class="dropdown" *ngIf="isDropdownOpen">
+          <li *ngFor="let product of products" (click)="isDropdownOpen = false">
+            <a [routerLink]="['/product', product.id]">{{ product.name }}</a>
+          </li>
+        </ul>
+      </li>
+
+      <!-- ABOUT -->
+      <li class="nav-item">
+        <a class="hover-lift" routerLink="/about">ABOUT</a>
+      </li>
+
+      <!-- SEARCH -->
+      <li class="nav-item">
+        <button class="hover-lift text-button" (click)="isSearchOpen = !isSearchOpen">SEARCH</button>
+        <div class="popup" *ngIf="isSearchOpen">
+          <form (ngSubmit)="handleSearchSubmit()">
+            <input type="text" [(ngModel)]="searchQuery" name="search" placeholder="Search..." />
+            <button class="text-button" type="submit">Search</button>
+          </form>
+        </div>
+      </li>
+
+      <!-- LOGIN -->
+      <li class="nav-item">
+        <button class="hover-lift text-button" (click)="isLoginOpen = !isLoginOpen">LOGIN</button>
+        <div class="popup" *ngIf="isLoginOpen">
+          <h3>Login</h3>
+          <input type="email" [(ngModel)]="loginData.email" placeholder="Email" />
+          <input type="password" [(ngModel)]="loginData.password" placeholder="Password" />
+          <button class="text-button">Sign In</button>
+        </div>
+      </li>
+
+      <!-- CART -->
+      <li class="nav-item">
+        <button class="hover-lift text-button" (click)="isCheckoutOpen = true">CART</button>
+        <div class="popup" *ngIf="isCheckoutOpen">
+          <h3>Checkout</h3>
+          <p>No products in the cart</p>
+          <button class="text-button" (click)="isCheckoutOpen = false">Close</button>
+        </div>
+      </li>
+    </ul>
+  </nav>
+</header>
