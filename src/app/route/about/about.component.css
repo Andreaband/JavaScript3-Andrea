@@ -1,0 +1,157 @@
+.page-container {
+  padding: 2rem;
+}
+
+.about-intro {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 4rem;
+  align-items: center;
+}
+
+.about-image {
+  flex: 1 1 400px;
+  max-width: 600px;
+  border-radius: 1rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+  width: 100%;
+}
+
+.about-text {
+  flex: 1 1 300px;
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.about-text h2 {
+  color: #b22e1f;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.about-philosophy {
+  background: linear-gradient(to right, #ffe5e0, #fff5f2);
+  padding: 3rem;
+  border-radius: 1rem;
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+.about-philosophy h3 {
+  font-size: 1.8rem;
+  color: #b22e1f;
+  margin-bottom: 1rem;
+}
+
+.about-philosophy p {
+  font-size: 1.1rem;
+  color: #444;
+}
+
+.quote-mark {
+  position: absolute;
+  top: -20px;
+  right: 20px;
+  font-size: 5rem;
+  color: #f5c6c0;
+  font-family: serif;
+  opacity: 0.3;
+}
+
+.materials {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.material-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.material-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.material-card h4 {
+  color: #b22e1f;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.material-card p {
+  color: #555;
+}
+
+.testimonial {
+  background: white;
+  padding: 3rem;
+  text-align: center;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 4rem;
+}
+
+.testimonial h3 {
+  font-size: 1.8rem;
+  color: #b22e1f;
+  margin-bottom: 1rem;
+}
+
+.testimonial-quote {
+  font-style: italic;
+  color: #666;
+  font-size: 1.2rem;
+}
+
+.testimonial-author {
+  margin-top: 1rem;
+  color: #b22e1f;
+  font-weight: bold;
+}
+
+.cta {
+  text-align: center;
+}
+
+.cta h3 {
+  font-size: 2rem;
+  color: #b22e1f;
+  margin-bottom: 1rem;
+}
+
+.cta p {
+  color: #555;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  padding: 0.8rem 2rem;
+  background-color: #b22e1f;
+  color: white;
+  border-radius: 2rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.cta-button:hover {
+  background-color: #9c2417;
+  transform: translateY(-2px);
+}

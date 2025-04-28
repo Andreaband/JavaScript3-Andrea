@@ -1,0 +1,35 @@
+<div class="page-container">
+  <h1 class="text-3xl font-bold text-red-700 mb-6">Admin - Products</h1>
+  
+
+  <a routerLink="/admin/add-product" class="button-add-product">
+    Add Product
+  </a>
+
+  <div *ngIf="loading">Loading...</div>
+  <div *ngIf="error">{{ error }}</div>
+
+  <table *ngIf="!loading && !error" class="admin-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Color</th>
+        <th>Price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{ product.id }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.color }}</td>
+        <td>{{ product.price }} €</td>
+        <td>
+          <button class="edit-button">Edit</button>
+          <button class="delete-button">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

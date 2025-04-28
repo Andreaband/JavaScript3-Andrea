@@ -12,6 +12,10 @@ app.get('/products', (req, res) => {
   const products = db.prepare('SELECT * FROM products').all();
   res.json(products);
 });
+app.get("/api/products", (req, res) => {
+  const products = db.prepare("SELECT * FROM products").all();
+  res.json(products);
+});
 app.get('/products/:id', (req, res) => {
   const id = req.params.id;
   const stmt = db.prepare('SELECT * FROM products WHERE id = ?');
