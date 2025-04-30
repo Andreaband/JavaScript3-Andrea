@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { CommonModule } from '@angular/common'; // ⬅️ Importa il CommonModule
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
   standalone: true, // ⬅️ Aggiungi questo
-  imports: [CommonModule], // ⬅️ E importa CommonModule
+  imports: [CommonModule, RouterModule], // ⬅️ E importa CommonModule
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
@@ -30,4 +31,21 @@ export class AdminComponent implements OnInit {
       });
   }
 
+  deleteProduct(id: number) {
+    if (confirm('Sei sicuro di voler eliminare questo prodotto?')) {
+      this.http.delete(`http://localhost:3000/api/products/${id}`)
+        .subscribe({
+          next: () => {
+            this.products = this.products.filter(p => p.id !== id);
+          },
+          error: () => {
+            this.error = 'Errore durante l\'eliminazione del prodotto';
+          }
+        });
+    }
+  }
+
+
 }
+
+
