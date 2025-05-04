@@ -1,7 +1,7 @@
 const Database = require('better-sqlite3');
 const path = require('path');
 
-// 🔧 Usa il percorso assoluto del file products.db nella cartella corrente (backend)
+
 const dbPath = path.resolve(__dirname, 'products.db');
 console.log('🧠 DB caricato da:', dbPath);
 
