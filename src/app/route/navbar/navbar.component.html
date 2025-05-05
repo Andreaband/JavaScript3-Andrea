@@ -22,8 +22,14 @@
       <li class="nav-item">
         <button class="hover-lift text-button" (click)="isSearchOpen = !isSearchOpen">SEARCH</button>
         <div class="popup" *ngIf="isSearchOpen">
-          <form (ngSubmit)="handleSearchSubmit()">
-            <input type="text" [(ngModel)]="searchQuery" name="search" placeholder="Search..." />
+          <form (ngSubmit)="handleSearchSubmit()" #searchForm="ngForm">
+            <input
+              type="text"
+              [(ngModel)]="searchQuery"
+              name="searchQuery"
+              placeholder="Search..."
+              required
+            />
             <button class="text-button" type="submit">Search</button>
           </form>
         </div>
@@ -34,8 +40,8 @@
         <button class="hover-lift text-button" (click)="isLoginOpen = !isLoginOpen">LOGIN</button>
         <div class="popup" *ngIf="isLoginOpen">
           <h3>Login</h3>
-          <input type="email" [(ngModel)]="loginData.email" placeholder="Email" />
-          <input type="password" [(ngModel)]="loginData.password" placeholder="Password" />
+          <input type="email" [(ngModel)]="loginData.email" placeholder="Email" name="email" />
+          <input type="password" [(ngModel)]="loginData.password" placeholder="Password" name="password" />
           <button class="text-button">Sign In</button>
         </div>
       </li>
